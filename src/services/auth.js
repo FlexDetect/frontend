@@ -13,6 +13,16 @@ export async function login(email, password) {
   return response.data;
 }
 
+export async function register(email, password) {
+  const response = await axios.post(`${API_URL}/users/register`, { email, password });
+
+  if (response.data) {
+    localStorage.setItem('token', response.data);
+  }
+  return response.data;
+}
+
+
 export function logout() {
   localStorage.removeItem('token');
 }
