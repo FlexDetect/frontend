@@ -26,7 +26,7 @@ const Landing = () => {
         {isLoggedIn() ? (
           <Button
             type="primary"
-            style={{ backgroundColor: '#fadb14', borderColor: '#fadb14', color: '#004080'  }}
+            style={{ backgroundColor: '#fadb14', borderColor: '#fadb14', color: '#004080' }}
             onClick={() => navigate('/dashboard')}
           >
             Dashboard
@@ -42,19 +42,43 @@ const Landing = () => {
         )}
       </Header>
 
-      <Content style={{ padding: '80px 50px', backgroundColor: '#e6f7ff' /* light blue */ }}>
+      <Content
+        style={{
+          padding: '80px 50px',
+          backgroundImage: 'url(/solar_buildings.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          position: 'relative',
+          color: '#e0e7ff',
+          minHeight: 'calc(100vh - 134px)',
+        }}
+      >
+        {/* Overlay */}
         <div
           style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            backgroundColor: 'rgba(0, 0, 40, 0.6)',
+            zIndex: 1,
+          }}
+        />
+
+        <div
+          style={{
+            position: 'relative',
             maxWidth: 800,
             margin: '0 auto',
             textAlign: 'center',
-            color: '#004080',
+            zIndex: 2,
           }}
         >
-          <Title level={1} style={{ fontWeight: 'bold' }}>
-            Flexible Energy Management
+          <Title level={1} style={{ fontWeight: 'bold', color: '#ffffffff' }}>
+            Detecting Energy Flexibility in Buildings
           </Title>
-          <Paragraph style={{ fontSize: 18, lineHeight: 1.6 }}>
+          <Paragraph style={{ fontSize: 18, lineHeight: 1.6, color: '#e3e4e7ff' }}>
             Monitor and optimize energy usage in your buildings with FlexDetect.  
             Our platform helps you detect and adapt energy consumption patterns  
             for a smarter, sustainable future.
@@ -68,6 +92,7 @@ const Landing = () => {
           </Button>
         </div>
       </Content>
+
       <Footer style={{ textAlign: 'center', backgroundColor: '#004080', color: '#fff' }}>
         © 2025 FlexDetect. Aljaž Brodar.
       </Footer>
